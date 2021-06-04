@@ -2,10 +2,12 @@ pipeline {
     agent none 
     stages {
         stage('Build') { 
+         
+          
+         
          steps{
-          echo 'build started'
-}         
-         steps{
+            echo 'build started'
+         
             sh "sudo docker build -t flaskapi ."
           }
         }
