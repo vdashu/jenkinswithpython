@@ -1,24 +1,20 @@
 pipeline {
     agent none 
     stages {
-        stage('Build') { {
-             agent none
-            
-           
+        stage('Build') { 
+         steps{
+          echo 'build started'
+}         
+         steps{
+            sh "sudo docker build -t flaskapi ."
+          }
         }
-        steps{
-         sh "sudo docker build -t flaskapi ."
-       }
-}
         stage('run docker') { 
- {
-             agent none
             
-           
-        }
-        steps{
-         sh "sudo docker run -p 4000:80 flaskapi"
-       }
+            
+            steps{
+              sh "sudo docker run -p 4000:80 flaskapi"
+            }
             
            
         }
